@@ -24,6 +24,12 @@ The frontend is built with **Streamlit**, an intuitive UI.
 ## 📂 Project Structure  
 ```bash
 Crop-Fertilizer-Recommender/
+│
+│── app/
+│   ├── _pycache                       # cache file
+│   ├── fertilizer_rules.py            # Avg NPK targets per crop
+│   └── streamlit_app.py               # Main Web App (with theme + charts)
+│
 │── data/
 │   └── crop_recommendation.csv        # Dataset
 │
@@ -33,9 +39,8 @@ Crop-Fertilizer-Recommender/
 │   └── training_report.txt            # Training evaluation
 │
 │── notebooks/                         # (optional) Jupyter experiments
-│
-│── train_crop_model.py                # Script to train & save model
-│── streamlit_app.py                   # Main Web App (with theme + charts)
+│    └── run.txt                       # Important notes And instructions    
+│── train_crop_model.py                # Script to train & save model      
 │── requirements.txt                   # Python dependencies
 │── README.md                          # Documentation
 
