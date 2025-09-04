@@ -45,14 +45,18 @@ model.fit(X_train, y_train)
 # 7) Evaluate
 y_pred = model.predict(X_test)
 acc = accuracy_score(y_test, y_pred)
-report = classification_report(y_test, y_pred)
 
+# Use string report for now; can switch to dict if needed
+report = classification_report(y_test, y_pred)  # string
 print(f"✅ Accuracy: {acc:.4f}")
 
-# Save training report
+# Save training report (type-safe)
 with open(REPORT_FILE, "w") as f:
     f.write(f"Accuracy: {acc:.4f}\n\n")
-    f.write(report)
+    if isinstance(report, dict):
+        f.write(json.dumps(report, indent=4))
+    else:
+        f.write(report)
 
 # 8) Fertilizer targets (avg NPK per crop)
 print("🧪 Computing fertilizer targets (avg NPK per crop)...")
